@@ -460,9 +460,9 @@ class BaseOptions(object):
         if state.device_id < 0:
             state.opt.device = torch.device("cpu")
         else:
-#             torch.cuda.set_device(state.device_id)
+            torch.cuda.set_device(state.device_id)
 #             https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix/issues/67
-            torch._C._cuda_setDevice(state.device_id)
+#             torch._C._cuda_setDevice(state.device_id)
             state.opt.device = torch.device("cuda:{}".format(state.device_id))
 
         if not dummy:
